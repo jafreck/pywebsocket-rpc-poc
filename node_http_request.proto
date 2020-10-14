@@ -1,0 +1,17 @@
+// generate: protoc -I=./ --python_out=./ node_http_request.proto
+
+syntax = "proto2";
+
+package node;
+
+message NodeHttpRequest {
+  optional bytes body = 10;
+  map<string, string> headers = 11; // maybe this should be json or repeated kv pair
+}
+
+
+message NodeHttpResponse {
+  optional bytes body = 10;
+  map<string, string> headers = 11; // maybe this should be json or repeated kv pair
+  optional int32 status_code = 12;
+}
