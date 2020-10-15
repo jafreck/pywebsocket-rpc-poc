@@ -4,9 +4,15 @@ syntax = "proto2";
 
 package node;
 
+enum Target {
+  NodeAgent = 0;
+  NodeController = 1;
+}
+
 message NodeHttpRequest {
   optional bytes body = 10;
   map<string, string> headers = 11; // maybe this should be json or repeated kv pair
+  optional Target target = 12;
 }
 
 
